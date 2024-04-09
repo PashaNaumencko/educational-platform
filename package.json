@@ -1,5 +1,5 @@
 {
-  "name": "tutor-app",
+  "name": "educational-platform",
   "private": true,
   "scripts": {
     "build": "turbo build",
