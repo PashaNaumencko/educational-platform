@@ -1,10 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
+  "globalEnv": ["NEXT_PUBLIC_COGNITO_DOMAIN", "NEXT_PUBLIC_APP_CLIENT_ID", "NEXT_PUBLIC_APP_CLIENT_SECRET", "NEXT_PUBLIC_COGNITO_REGION"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", 'dist/**']
+      "outputs": [".next/**", "!.next/cache/**", "./dist/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
