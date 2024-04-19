@@ -31,12 +31,16 @@ export const signInWithCredentials = async (
       new InitiateAuthCommand({ ...params }),
     );
 
+    console.log('response', response);
+
     if (response.AuthenticationResult) {
       const getUserCommand = new GetUserCommand({
         AccessToken: response.AuthenticationResult.AccessToken,
       });
 
       const userResponse = await cognitoClient.send(getUserCommand);
+
+      console.log('userResponse', userResponse);
 
       if (userResponse.UserAttributes) {
         const customAttributes = userResponse.UserAttributes.filter((attr) =>
