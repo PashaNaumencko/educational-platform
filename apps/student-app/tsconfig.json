@@ -6,7 +6,12 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./"
+    "baseUrl": "./src",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@modules/*": ["modules/*"],
+      "@ui/*": ["ui/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
