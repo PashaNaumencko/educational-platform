@@ -10,7 +10,8 @@
     "paths": {
       "@common/*": ["common/*"],
       "@modules/*": ["modules/*"],
-      "@ui/*": ["ui/*"]
+      "@ui/*": ["ui/*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "include": [

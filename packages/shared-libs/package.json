@@ -1,5 +1,6 @@
 {
   "name": "@repo/shared-libs",
+  "type": "module",
   "engines": {
     "node": "18.x.x",
     "npm": ">=9.x.x"

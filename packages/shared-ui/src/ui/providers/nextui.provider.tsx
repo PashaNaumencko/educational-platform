@@ -1,3 +1,5 @@
+'use client';
+
 import { NextUIProvider as UINextUIProvider } from '@nextui-org/react';
 
 const NextUIProvider = ({

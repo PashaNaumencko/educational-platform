@@ -1,9 +1,19 @@
 import '@styles/globals.css';
 import { Providers } from '@ui/common/common';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Lexend } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const lexend = Lexend({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lexend',
+});
 
 export const metadata: Metadata = {
   title: 'Educational platform',
@@ -16,10 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <Providers>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
-      </html>
-    </Providers>
+    <html lang="en" className={`${inter.variable} ${lexend.variable} light`}>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }
