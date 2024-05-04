@@ -1,18 +1,12 @@
 import '@styles/globals.css';
 import { Providers } from '@ui/common/common';
 import type { Metadata } from 'next';
-import { Inter, Lexend } from 'next/font/google';
+import { Rubik } from 'next/font/google';
 
-const inter = Inter({
+const rubik = Rubik({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
-});
-
-const lexend = Lexend({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-lexend',
+  variable: '--font-rubik',
 });
 
 export const metadata: Metadata = {
@@ -26,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="en" className={`${inter.variable} ${lexend.variable} light`}>
+    <html lang="en" className={`${rubik.variable} light`}>
       <body>
         <Providers>{children}</Providers>
       </body>

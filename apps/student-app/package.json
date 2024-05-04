@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.554.0",
+    "@hookform/resolvers": "^3.3.4",
     "@repo/shared-libs": "workspace:*",
     "@repo/shared-ui": "workspace:*",
     "framer-motion": "^11.1.3",
@@ -17,7 +18,8 @@
     "next-auth": "^4.24.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "zod": "^3.22.4"
+    "react-hook-form": "^7.51.3",
+    "zod": "^3.23.5"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.1",

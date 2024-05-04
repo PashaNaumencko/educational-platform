@@ -19,6 +19,8 @@
     "@repo/typescript-config": "workspace:*"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0",
     "zod": "^3.22.4"
   }
 }

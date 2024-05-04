@@ -1,7 +1,11 @@
+import { SignInForm } from '@ui/modules/auth/auth';
+import { signIn } from 'next-auth/react';
 import React from 'react';
 
-const SignIn = () => {
-  return <button>Sign-in</button>;
-};
+export default function SignIn() {
+  const handleSignIn = (values) => {
+    signIn('credentials', values);
+  };
 
-export default SignIn;
+  return <SignInForm onSignIn={handleSignIn} />;
+}

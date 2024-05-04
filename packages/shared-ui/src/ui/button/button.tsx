@@ -1,11 +1,18 @@
-import { Button as UIButton } from '@nextui-org/react';
+import { ButtonProps, Button as UIButton } from '@nextui-org/react';
+import { FC, ReactNode } from 'react';
 
-const Button = () => {
+type Props = {
+  children: ReactNode;
+} & ButtonProps;
+
+const Button: FC<Props> = ({ children, ...rest }) => {
   return (
-    <UIButton size="lg" color="primary">
-      NextUI Button!
+    <UIButton
+      className="typography-button w-full rounded-md text-white"
+      {...rest}
+    >
+      {children}
     </UIButton>
   );
 };
-
 export { Button };
