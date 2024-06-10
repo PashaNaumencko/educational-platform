@@ -7,19 +7,20 @@ import z from 'zod';
 
 import { signInValidationSchema } from '@repo/shared-libs';
 import { cognitoClient } from '../libs/cognito-client.lib';
+import { CredentialsSigninError } from '../auth';
 
-const { NEXT_PUBLIC_APP_CLIENT_ID } = process.env;
+const { COGNITO_APP_CLIENT_ID } = process.env;
 
 export const signInWithCredentials = async (
   credentials?: z.infer<typeof signInValidationSchema>,
 ) => {
-  if (!credentials) {
+  if (!credentials || !credentials?.email || !credentials?.password) {
     return null;
   }
 
   const params: InitiateAuthCommandInput = {
     AuthFlow: 'USER_PASSWORD_AUTH',
-    ClientId: NEXT_PUBLIC_APP_CLIENT_ID,
+    ClientId: COGNITO_APP_CLIENT_ID,
     AuthParameters: {
       USERNAME: credentials.email,
       PASSWORD: credentials.password,
@@ -62,7 +63,7 @@ export const signInWithCredentials = async (
       return null;
     }
   } catch (error) {
-    console.error(error);
+    throw new CredentialsSigninError('Unable to login');
     return null;
   }
 };

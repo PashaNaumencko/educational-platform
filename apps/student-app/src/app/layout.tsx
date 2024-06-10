@@ -1,3 +1,4 @@
+import { auth } from '@modules/auth/auth';
 import '@styles/globals.css';
 import { Providers } from '@ui/common/common';
 import type { Metadata } from 'next';
@@ -14,15 +15,21 @@ export const metadata: Metadata = {
   description: 'Educational platform for students',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}): JSX.Element {
+}): Promise<JSX.Element> {
+  const session = await auth();
+
+  console.log('session', session);
+
   return (
     <html lang="en" className={`${rubik.variable} light`}>
       <body>
-        <Providers>{children}</Providers>
+        <main className="flex  h-lvh flex-col items-center justify-center">
+          <Providers>{children}</Providers>
+        </main>
       </body>
     </html>
   );

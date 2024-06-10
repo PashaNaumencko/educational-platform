@@ -1,11 +1,11 @@
-import { NextAuthOptions } from 'next-auth';
+import { type NextAuthConfig } from 'next-auth';
 
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { signInWithCredentials } from '../api/sign-in-with-credentials';
 
 const nextAuthConfig = {
   pages: {
-    signIn: '/sign-in',
+    signIn: '/auth/sign-in',
   },
   // session: {
   //   strategy: 'jwt',
@@ -21,6 +21,6 @@ const nextAuthConfig = {
       authorize: signInWithCredentials,
     }),
   ],
-} satisfies NextAuthOptions;
+} satisfies NextAuthConfig;
 
 export { nextAuthConfig };

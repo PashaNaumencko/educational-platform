@@ -34,6 +34,7 @@
   "dependencies": {
     "@nextui-org/react": "^2.3.2",
     "@repo/shared-libs": "workspace:*",
-    "framer-motion": "^11.1.3"
+    "framer-motion": "^11.1.3",
+    "lucide-react": "^0.378.0"
   }
 }

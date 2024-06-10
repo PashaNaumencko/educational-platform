@@ -4,5 +4,6 @@ module.exports = {
     '@repo/shared-ui',
     '@repo/shared-libs',
     '@repo/tailwind-config',
+    'lucide-react',
   ],
 };

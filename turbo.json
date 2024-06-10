@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "globalEnv": ["NEXT_PUBLIC_COGNITO_DOMAIN", "NEXT_PUBLIC_APP_CLIENT_ID", "NEXT_PUBLIC_APP_CLIENT_SECRET", "NEXT_PUBLIC_COGNITO_REGION"],
+  "globalEnv": ["COGNITO_DOMAIN", "COGNITO_CLIENT_ID", "COGNITO_CLIENT_SECRET", "COGNITO_REGION"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],

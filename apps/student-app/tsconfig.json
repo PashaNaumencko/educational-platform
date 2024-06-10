@@ -11,8 +11,11 @@
       "@common/*": ["common/*"],
       "@modules/*": ["modules/*"],
       "@ui/*": ["ui/*"],
-      "@styles/*": ["styles/*"]
-    }
+      "@styles/*": ["styles/*"],
+      "@assets/*": ["assets/*"]
+    },
+    "declaration": false,
+    "declarationMap": false
   },
   "include": [
     "next-env.d.ts",

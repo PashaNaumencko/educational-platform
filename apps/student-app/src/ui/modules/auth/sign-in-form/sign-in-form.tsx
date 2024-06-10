@@ -1,39 +1,41 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { signInAction } from '@modules/auth/auth';
 import { signInValidationSchema } from '@repo/shared-libs';
 import { Button, Input } from '@repo/shared-ui';
-import { Form } from '@ui/common/common';
+import { Form, Icon } from '@ui/common/common';
+import { useAction } from 'next-safe-action/hooks';
 import { FC, MouseEvent, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-type Props = {
-  onSignIn: () => void;
-};
-
 type FormPayload = z.infer<typeof signInValidationSchema>;
 
-const SignInForm: FC<Props> = ({ onSignIn }) => {
+type Props = {
+  onSignIn: (payload: FormPayload) => void;
+};
+
+const SignInForm: FC = () => {
   const [isPasswordShown, setIsPasswordShown] = useState<boolean>(false);
   const { handleSubmit, control } = useForm<FormPayload>({
     resolver: zodResolver(signInValidationSchema),
   });
+  const { execute, result } = useAction(signInAction);
 
   const handleSignInSubmit: SubmitHandler<FormPayload> = (values) => {
-    onSignIn(values);
+    execute(values);
   };
 
   const handleShownPassword = () => {
     setIsPasswordShown((prevState) => !prevState);
   };
 
-  const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
-
   return (
-    <Form onSubmit={handleSubmit(handleSignInSubmit)} className="">
+    <Form
+      onSubmit={handleSubmit(handleSignInSubmit)}
+      className="w flex flex-col border border-solid border-[] p-5"
+    >
       <Form.Input
         name="email"
         control={control}
@@ -49,6 +51,25 @@ const SignInForm: FC<Props> = ({ onSignIn }) => {
         label="Enter password"
         type={isPasswordShown ? 'text' : 'password'}
         placeholder="••••••"
+        endContent={
+          <button
+            className="focus:outline-none"
+            type="button"
+            onClick={handleShownPassword}
+          >
+            {isPasswordShown ? (
+              <Icon
+                name="eye-off"
+                className="pointer-events-none text-2xl text-default-400"
+              />
+            ) : (
+              <Icon
+                name="eye"
+                className="pointer-events-none text-2xl text-default-400"
+              />
+            )}
+          </button>
+        }
       />
 
       <Button variant="solid" color="primary">

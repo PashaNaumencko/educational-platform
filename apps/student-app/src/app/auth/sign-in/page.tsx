@@ -1,11 +1,18 @@
 import { SignInForm } from '@ui/modules/auth/auth';
-import { signIn } from 'next-auth/react';
+import Image from 'next/image';
 import React from 'react';
+import AuthPlaceholder from '@assets/auth/auth-placeholder.jpg';
 
 export default function SignIn() {
-  const handleSignIn = (values) => {
-    signIn('credentials', values);
-  };
+  return (
+    <div className="flex">
+      <div className="w-[50%]">
+        <SignInForm />
+      </div>
 
-  return <SignInForm onSignIn={handleSignIn} />;
+      <div className="w-[50%]">
+        <Image fill src={AuthPlaceholder} alt="auth-placeholder" />
+      </div>
+    </div>
+  );
 }
